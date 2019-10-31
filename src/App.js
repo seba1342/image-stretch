@@ -29,7 +29,7 @@ class App extends React.Component {
 
       const colorsArray = [];
 
-      for (var i = 0; i < img.width - 1; i++) {
+      for (var i = 0; i < img.width; i++) {
         const rawColorData = ctx.getImageData(i, img.height - 1, 1, 1).data;
         const hexValue = `#${("000000" + this.rgbToHex(rawColorData[0], rawColorData[1], rawColorData[2])).slice(-6)}`;
 
@@ -39,12 +39,6 @@ class App extends React.Component {
         ctx.fillRect(i, img.height, 1, this.state.height - img.height);
 
       }
-
-      console.log(this.state.height - img.height);
-
-      // for (var i = img.height; i < this.state.height; i++) {
-
-      // }
 
     }
   }
@@ -74,7 +68,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <canvas id="canvas" ref={this.canvasRef} width={this.state.width} height={this.state.height}></canvas>
-        <img ref={this.imageRef} alt="Ocean" src={require("./overseas_1.jpg")} style={{display: 'none'}} />
+        <img ref={this.imageRef} alt="Ocean" src={require("./overseas_xs_1.jpg")} style={{display: 'none'}} />
       </div>
     );
   }  
